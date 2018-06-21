@@ -6,13 +6,15 @@ import java.util.List;
 
 public class App {
 	public static void main(String[] args) {
-		int cardCount = Integer.parseInt(args[0]);
-		int mp = Integer.parseInt(args[1]);
+		String[] inputs = args[0].split(" ");
+
+		int cardCount = Integer.parseInt(inputs[0]);
+		int mp = Integer.parseInt(inputs[1]);
 
 		List<Card> cards = new ArrayList<Card>();
-		for (int i = 2, l = args.length; i < l; i += 2) {
-			int attack = Integer.parseInt(args[i]);
-			int cost = Integer.parseInt(args[i + 1]);
+		for (int i = 2, l = inputs.length; i < l; i += 2) {
+			int attack = Integer.parseInt(inputs[i]);
+			int cost = Integer.parseInt(inputs[i + 1]);
 			cards.add(new Card(attack, cost));
 		}
 		cards.sort((a, b) -> b.apc.subtract(a.apc).intValue());
